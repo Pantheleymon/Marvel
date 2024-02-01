@@ -12,12 +12,7 @@ class RandomChar extends Component {
     }
 
     state = {
-        char: {},
-        name: null,
-        description: null,
-        thumbnail: null,
-        homepage: null,
-        wiki: null,
+        char: {}
     }
 
     marvelService = new MarvelService();
