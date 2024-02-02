@@ -24,13 +24,15 @@ class MarvelService {
         return this._transformCharacter(res.data.results[0]);
     }
 
-    _transformCharacter = (character) => {
+    _transformCharacter = (char) => {
         return {
-                name: character.name,
-                description: character.description ? `${character.description.slice(0, 210)}...` : 'There is no description for this character',
-                thumbnail: character.thumbnail.path + '.' + character.thumbnail.extension,
-                homepage: character.urls[0].url,
-                wiki: character.urls[1].url
+            id: char.id,
+            name: char.name,
+            description: char.description ? `${char.description.slice(0, 210)}...` : 'There is no description for this character',
+            thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
+            homepage: char.urls[0].url,
+            wiki: char.urls[1].url,
+            comics: char.comics.items,
         }
     }
 }
