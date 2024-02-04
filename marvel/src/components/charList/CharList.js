@@ -12,7 +12,8 @@ class CharList extends Component {
         error: false,
         newItemLoading: false,
         offset: 210,
-        charEnded: false
+        charEnded: false,
+        selectedCharId: null
     }
     
     marvelService = new MarvelService();
@@ -60,9 +61,12 @@ class CharList extends Component {
         })
     }
 
-    // Этот метод создан для оптимизации, 
-    // чтобы не помещать такую конструкцию в метод render
-    renderItems(arr) {
+    onSelectChar = (id) => {
+        this.setState({selectedCharId: id});
+        this.props.onCharSelected(id);
+    }
+
+    renderItems(arr, id) {
         const items =  arr.map((item) => {
             let imgStyle = {'objectFit' : 'cover'};
             if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
@@ -71,15 +75,17 @@ class CharList extends Component {
             
             return (
                 <li 
-                    className="char__item"
+                    className={item.id === id ? "char__item char__item_selected" : "char__item"}
                     key={item.id}
-                    onClick={() => this.props.onCharSelected(item.id)}>
+                    onClick={() => this.onSelectChar(item.id)}
+                    onKeyDown={(event) => event.code === "Enter" || event.code === "Space" ? this.onSelectChar(item.id) : ''}
+                    tabIndex="0">
                         <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
                         <div className="char__name">{item.name}</div>
                 </li>
             )
         });
-        // А эта конструкция вынесена для центровки спиннера/ошибки
+
         return (
             <ul className="char__grid">
                 {items}
@@ -89,9 +95,9 @@ class CharList extends Component {
 
     render() {
 
-        const {charList, loading, error, offset, newItemLoading, charEnded} = this.state;
+        const {charList, loading, error, offset, newItemLoading, charEnded, selectedCharId} = this.state;
         
-        const items = this.renderItems(charList);
+        const items = this.renderItems(charList, selectedCharId);
 
         const errorMessage = error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner/> : null;
