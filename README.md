@@ -11,4 +11,4 @@ SASS/SCSS ✅ <br/>
 Методология БЭМ ✅ <br/>
 Сборка, мининификация и объединение файлов проекта с помощью Webpack ✅
 
-<h2>Посмотреть сайт вы можете <a href="https://pantheleymon.github.io/Marvel/" rel="noreferrer">здесь</a>!</h2>
+<h2>Посмотреть сайт вы можете <a href="https://pantheleymon.github.io/Marvel/" target="_blank" rel="noreferrer">здесь</a>!</h2>
