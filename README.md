@@ -5,6 +5,8 @@
 
 <h2>📟 Какие использовались технологии?</h2>
 React ✅ <br/>
+React-Hooks ✅ <br/>
+React-Router ✅ <br/>
 API ✅ <br/>
 SASS/SCSS ✅ <br/>
 Модульная система ✅ <br/>
