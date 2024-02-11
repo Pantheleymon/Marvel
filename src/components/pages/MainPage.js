@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
@@ -13,6 +13,12 @@ const MainPage = () => {
         setChar(id);
     }
 
+    const charInfoRef = useRef(null);
+
+    function charInfoFocus() {
+        charInfoRef.current && charInfoRef.current.focus()
+    }
+
     return (
         <>
             <ErrorBoundary>
@@ -22,11 +28,13 @@ const MainPage = () => {
             <div className="char__content">
                 <ErrorBoundary>
                     <CharList onCharSelected={onCharSelected} 
-                                charId={selectedChar}/>
+                                charId={selectedChar}
+                                charInfoFocus={charInfoFocus}
+                                />
                 </ErrorBoundary>
 
                 <ErrorBoundary>
-                    <CharInfo charId={selectedChar}/>
+                    <CharInfo charId={selectedChar} charInfoRef={charInfoRef}/>
                 </ErrorBoundary>
             </div>
         </>
