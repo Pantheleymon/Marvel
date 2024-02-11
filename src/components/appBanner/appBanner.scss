@@ -18,3 +18,11 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px){
+    .app {
+        &__banner {
+            display: none;
+        }
+    }
+}

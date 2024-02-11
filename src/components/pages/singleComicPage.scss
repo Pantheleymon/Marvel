@@ -37,3 +37,20 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px){
+    .single-comic {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+
+        &__name {
+            margin-top: 20px;
+        }
+
+        &__back {
+            margin-top: 20px;
+        }
+    }
+}
