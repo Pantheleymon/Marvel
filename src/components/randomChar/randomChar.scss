@@ -61,3 +61,31 @@
         right: -37px;
     }
 }
+
+@media screen and (max-width: 1024px){
+	.randomchar {
+        grid-template-columns: repeat(1, 100%);
+
+        &__info {
+            display: block;
+        }
+
+        &__btns {
+            margin-top: 10px;
+
+            a:nth-child(1) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &__static {
+            overflow: hidden;
+        }
+
+        &__decoration {
+            position: absolute;
+            bottom: -46px;
+            right: -85px;
+        }
+    }
+}
