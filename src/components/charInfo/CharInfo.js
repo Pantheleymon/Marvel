@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
@@ -88,10 +89,13 @@ const View = ({char}) => {
                 // eslint-disable-next-line
                 comics.map((item, i) => {
                     if (i <= 9) {
+                        let comicId = item.resourceURI.slice(item.resourceURI.lastIndexOf('/') + 1);
                         return (
-                            <li key={i} className="char__comics-item">
-                                {item.name}
-                            </li>
+                            <Link to={`/comics/${comicId}`} className="char__comics-item" key={i}>
+                                <li>
+                                    {item.name}
+                                </li>
+                            </Link>
                         )
                     }
                 })
