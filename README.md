@@ -8,7 +8,11 @@ React ✅ <br/>
 React-Hooks ✅ <br/>
 React-Router ✅ <br/>
 API ✅ <br/>
-SASS/SCSS ✅ <br/>
+SASS/SCSS ✅ <br/><br/>
+
+Formik ✅ <br/>
+Yup✅ <br/><br/>
+
 Модульная система ✅ <br/>
 Методология БЭМ ✅ <br/>
 Сборка, мининификация и объединение файлов проекта с помощью Webpack ✅
